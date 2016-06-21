@@ -30,12 +30,12 @@ Description: This page contains the detailed information about the game in GridV
                         <asp:ListItem Text="10" Value="10" />
                         <asp:ListItem Text="All" Value="10000" />
                     </asp:DropDownList>
-                </div>
+                    </div>
                 <br />
                 <asp:GridView runat="server" CssClass="table table-hover" BackColor="White"
-                    ID="GamesGridView" AutoGenerateColumns="false" DataKeyNames="gameID"
-                    AllowPaging="true" PageSize="3"
-                    OnPageIndexChanging="GamesGridView_PageIndexChanging" AllowSorting="true"
+                    ID="GamesGridView" AutoGenerateColumns="False" DataKeyNames="gameID"
+                    AllowPaging="True" PageSize="3"
+                    OnPageIndexChanging="GamesGridView_PageIndexChanging" AllowSorting="True"
                     OnSorting="GamesGridView_Sorting" OnRowDataBound="GamesGridView_RowDataBound"
                     PagerStyle-CssClass="pagination-ys">
                     <Columns>
@@ -44,13 +44,23 @@ Description: This page contains the detailed information about the game in GridV
                         <asp:BoundField DataField="Team2Name" HeaderText="Team2 Name" Visible="true" SortExpression="Team2Name" />
                         <asp:BoundField DataField="Team1Score" HeaderText="Team1 Score" Visible="true" SortExpression="Team1Score" />
                         <asp:BoundField DataField="Team2Score" HeaderText="Team2 Score" Visible="true" SortExpression="Team2Score" />
-                        <asp:BoundField DataField="Weeks" HeaderText="Week" Visible="true" SortExpression="Weeks"
-                            DataFormatString="{0:yyyy/MM/dd}" />
+                        <asp:TemplateField HeaderText="Week" SortExpression="Weeks">
+                            <EditItemTemplate>
+                                <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("Weeks") %>'></asp:TextBox>
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Calendar ID="Calendar1" runat="server" SelectedDate='<%# Bind("Weeks") %>' VisibleDate='<%# Bind("Weeks") %>'></asp:Calendar>
+                            </ItemTemplate>
+                        </asp:TemplateField>
                         <asp:BoundField DataField="GameWinner" HeaderText="GameWinner" Visible="true" SortExpression="GameWinner" />
                         <asp:HyperLinkField HeaderText="Edit" Text="<i class='fa fa-pencil-square-o fa-lg'></i> Edit"
                             NavigateUrl="~/AddGame.aspx" ControlStyle-CssClass="btn btn-primary btn-sm" runat="server"
-                            DataNavigateUrlFields="gameID" DataNavigateUrlFormatString="AddGame.aspx?gameID={0}" />
+                            DataNavigateUrlFields="gameID" DataNavigateUrlFormatString="AddGame.aspx?gameID={0}" >
+<ControlStyle CssClass="btn btn-primary btn-sm"></ControlStyle>
+                        </asp:HyperLinkField>
                     </Columns>
+
+<PagerStyle CssClass="pagination-ys"></PagerStyle>
                 </asp:GridView>
             </div>
         </div>

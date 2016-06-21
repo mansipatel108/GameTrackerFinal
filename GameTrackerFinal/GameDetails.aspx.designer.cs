@@ -7,13 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GameTrackerFinal
-{
-
-
-    public partial class GameDetails
-    {
-
+namespace GameTrackerFinal {
+    
+    
+    public partial class GameDetails {
+        
         /// <summary>
         /// PageSizeDropDownList control.
         /// </summary>
@@ -22,7 +20,7 @@ namespace GameTrackerFinal
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList PageSizeDropDownList;
-
+        
         /// <summary>
         /// GamesGridView control.
         /// </summary>

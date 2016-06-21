@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 // using statements required for EF DB access
 using GameTrackerFinal.Model;
-//using System.Web.ModelBinding;
+using System.Web.ModelBinding;
 namespace GameTrackerFinal
 {
     public partial class AddGame : System.Web.UI.Page
@@ -24,7 +24,7 @@ namespace GameTrackerFinal
             int gameID = Convert.ToInt32(Request.QueryString["gameID"]);
 
             //connect to EF to DB
-            using (DefaultConnection db = new DefaultConnection())
+            using (GameConnection db = new GameConnection())
             {
                 // populate a game object instance with the GameID from the URL Parameter
                 Game_info updatedGame = (from Game_info in db.Game_info
@@ -54,7 +54,7 @@ namespace GameTrackerFinal
         protected void AddButton_Click(object sender, EventArgs e)
         {
             // Use EF to connect to the server
-            using (DefaultConnection db = new DefaultConnection())
+            using (GameConnection db = new GameConnection())
             {
                 // use the Game model to create a new game object and
                 // save a new record

@@ -9,6 +9,7 @@ using System.Web.UI.WebControls;
 using GameTrackerFinal.Model;
 //using System.Web.ModelBinding;
 using System.Linq.Dynamic;
+using System.Globalization;
 
 namespace GameTrackerFinal
 {
@@ -36,7 +37,7 @@ namespace GameTrackerFinal
         protected void GetGames()
         {
             // connect to EF
-            using (DefaultConnection db = new DefaultConnection())
+            using (GameConnection db = new GameConnection())
             {
                 string SortString = Session["SortColumn"].ToString() + " " + Session["SortDirection"].ToString();
 
@@ -117,5 +118,7 @@ namespace GameTrackerFinal
                 }
             }
         }
+
+        
     }
 }

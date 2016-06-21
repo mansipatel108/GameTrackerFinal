@@ -19,63 +19,23 @@ Description: From this page user can create a tracker for their favourite game's
                     <h1>Tracker...</h1>
                     <div class="row">
                         <label for="PageSizeDropDownList" id="select-week">Select Week: </label>
-                        <asp:DropDownList ID="WeekDropDownList" runat="server"
-                            AutoPostBack="true" CssClass="btn btn-default bt-sm dropdown-toggle"
-                            OnSelectedIndexChanged="WeekDropDownList_SelectedIndexChanged">
-                            <asp:ListItem Text="1" Value="1" />
-                            <asp:ListItem Text="2" Value="2" />
-                            <asp:ListItem Text="3" Value="3" />
-                            <asp:ListItem Text="4" Value="4" />
-                            <asp:ListItem Text="5" Value="5" />
-                            <asp:ListItem Text="6" Value="6" />
-                            <asp:ListItem Text="7" Value="7" />
-                            <asp:ListItem Text="8" Value="8" />
-                            <asp:ListItem Text="9" Value="9" />
-                            <asp:ListItem Text="10" Value="10" />
-                            <asp:ListItem Text="11" Value="11" />
-                            <asp:ListItem Text="12" Value="12" />
-                            <asp:ListItem Text="13" Value="13" />
-                            <asp:ListItem>14</asp:ListItem>
-                            <asp:ListItem>15</asp:ListItem>
-                            <asp:ListItem>16</asp:ListItem>
-                            <asp:ListItem>17</asp:ListItem>
-                            <asp:ListItem>18</asp:ListItem>
-                            <asp:ListItem>19</asp:ListItem>
-                            <asp:ListItem>20</asp:ListItem>
-                            <asp:ListItem>21</asp:ListItem>
-                            <asp:ListItem>22</asp:ListItem>
-                            <asp:ListItem>23</asp:ListItem>
-                            <asp:ListItem>24</asp:ListItem>
-                            <asp:ListItem>25</asp:ListItem>
-                            <asp:ListItem>26</asp:ListItem>
-                            <asp:ListItem>27</asp:ListItem>
-                            <asp:ListItem>28</asp:ListItem>
-                            <asp:ListItem>29</asp:ListItem>
-                            <asp:ListItem>30</asp:ListItem>
-                            <asp:ListItem>31</asp:ListItem>
-                            <asp:ListItem>32</asp:ListItem>
-                            <asp:ListItem>33</asp:ListItem>
-                            <asp:ListItem>34</asp:ListItem>
-                            <asp:ListItem>35</asp:ListItem>
-                            <asp:ListItem>36</asp:ListItem>
-                            <asp:ListItem>37</asp:ListItem>
-                            <asp:ListItem>38</asp:ListItem>
-                            <asp:ListItem>39</asp:ListItem>
-                            <asp:ListItem>40</asp:ListItem>
-                            <asp:ListItem>41</asp:ListItem>
-                            <asp:ListItem>42</asp:ListItem>
-                            <asp:ListItem>43</asp:ListItem>
-                            <asp:ListItem>44</asp:ListItem>
-                            <asp:ListItem>45</asp:ListItem>
-                            <asp:ListItem>46</asp:ListItem>
-                            <asp:ListItem>47</asp:ListItem>
-                            <asp:ListItem>48</asp:ListItem>
-                            <asp:ListItem>49</asp:ListItem>
-                            <asp:ListItem>50</asp:ListItem>
-                            <asp:ListItem>51</asp:ListItem>
-                            <asp:ListItem>52</asp:ListItem>
-                        </asp:DropDownList>
+                        
                     </div>
+
+    
+                                <asp:Calendar ID="Calendar1" runat="server" OnSelectionChanged="Calendar1_SelectionChanged"></asp:Calendar>
+                            <asp:GridView runat="server" CssClass="table table-hover" BackColor="White"
+                    ID="WeeklyGamesGridView" DataKeyNames="gameID" OnSelectedIndexChanged="WeeklyGamesGridView_SelectedIndexChanged">
+                        <Columns>
+                        <asp:BoundField DataField="GameType" HeaderText="Game Name" Visible="true" SortExpression="GameType" />
+                        <asp:BoundField DataField="Team1Name" HeaderText="Team1 Name" Visible="true" SortExpression="Team1Name" />
+                        <asp:BoundField DataField="Team2Name" HeaderText="Team2 Name" Visible="true" SortExpression="Team2Name" />
+                        <asp:BoundField DataField="Team1Score" HeaderText="Team1 Score" Visible="true" SortExpression="Team1Score" />
+                        <asp:BoundField DataField="Team2Score" HeaderText="Team2 Score" Visible="true" SortExpression="Team2Score" />
+                        <asp:BoundField DataField="GameWinner" HeaderText="GameWinner" Visible="true" SortExpression="GameWinner" />
+                        </Columns>
+                    </asp:GridView>
+    <asp:TextBox runat="server" ID="WeekTextBox"></asp:TextBox>
                     <br />
                     <br />
                     <div class="col-md-3 col-sm-6">
